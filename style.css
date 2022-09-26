@@ -14,7 +14,7 @@
     margin: 30px auto;
     border-radius: 10px;
     background-color:#252323d3;
-    box-shadow: inset -5px -5px 5px rgba(0, 0, 0, 0.708),25px 25px 15px rgba(0, 0, 0, 0.269);
+    box-shadow: inset -1px -10px 5px rgba(0, 0, 0, 0.708),inset 5px 5px 5px rgba(0, 0, 0, 0.708),25px 25px 15px rgba(0, 0, 0, 0.269),;
     position: relative;
     text-align: end; /*marka için*/
     
