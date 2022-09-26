@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: consolas;
+    font-weight: 900;
+   
+}
+
+.calc-wrapper{
+    width:340px;
+    height:600px;
+    padding: 10px 10px;
+    margin: 30px auto;
+    border-radius: 10px;
+    background-color:#252323d3;
+    box-shadow: inset -5px -5px 5px rgba(0, 0, 0, 0.708),25px 25px 15px rgba(0, 0, 0, 0.269);
+    position: relative;
+    text-align: end; /*marka için*/
+    
+}
+
+.calc-screen{
+    width: 310px;
+    height: 120px;
+    border-radius: 3px;
+    font-size: 35px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0 10px;
+    background-color: rgb(124, 134, 118);
+    margin:20px auto;
+    border-style: outset;
+    border-top: 4px solid rgb(63 67 60);
+    border-bottom: 10px solid rgb(63 67 60);
+    border-right: 4px solid rgb(21, 21, 20);
+    border-left: 9px solid rgb(24, 25, 23);
+
+
+
+}
+
+.calc-body{
+    width: 100%;
+    height: auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:10px;
+}
+
+.btn{
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    background:linear-gradient(90deg, rgba(0, 0, 0, 0.909), rgba(82, 82, 82, 0.954));
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    font-size: 20px;
+    font-weight: 700;
+    position: relative;
+    box-shadow: inset -5px -5px 5px black, inset 5px 5px 5px black, 5px 5px 15px  black;
+    cursor: pointer;
+}
+
+.btn:active {
+    border: 2px solid rgba(0, 0, 0, 0.607);
+    background:linear-gradient(60deg, rgba(71, 71, 71, 0.909), rgba(21, 21, 21, 0.66));
+   
+
+}
+.btn.zero{
+    width: 150px;
+    background:linear-gradient(90deg, rgba(113, 4, 4, 0.909), rgba(173, 8, 8, 0.715));
+    box-shadow: inset -5px -5px 5px rgb(101, 1, 1), inset 5px 5px 5px rgb(105, 2, 2), 5px 5px 15px  black;
+   
+}
+.btn.opposite{
+    background:linear-gradient(90deg, rgba(59, 8, 169, 0.909), rgba(83, 13, 234, 0.909));
+    box-shadow: inset -5px -5px 5px rgb(59, 8, 169, 0.909), inset 5px 5px 5px rgba(59, 2, 181, 0.909), 5px 5px 15px  rgb(0, 0, 0);
+   
+}
+
+.btn::before {
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 50px;
+    background:linear-gradient(60deg, rgba(0, 0, 0, 0.479), rgba(0, 0, 0, 0.009));
+   border-radius: 10px;
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   top:8px;
+   left:8px
+
+}
+.btn.zero::before {
+    width:130px;
+    background:linear-gradient(60deg, rgba(249, 3, 3, 0.479), rgba(248, 44, 44, 0.009));
+}
+.btn.opposite::before{
+    background:linear-gradient(90deg, rgba(59, 8, 169, 0.548), rgba(83, 13, 234, 0.137));
+  
+}
+
+.marka{
+   color: white;
+   font-size: 18px;
+   margin-right: 8px;
+}
