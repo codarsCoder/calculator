@@ -7,106 +7,101 @@
    
 }
 
-.calc-wrapper{
-    width:340px;
-    height:600px;
-    padding: 10px 10px;
+.calc-wrapper {
+    width: 340px;
+    height: 600px;
+    border: 1px solid black;
     margin: 30px auto;
+    padding: 10px 10px;
+    background-color: rgb(68, 107, 107);
+    text-align: end;
     border-radius: 10px;
-    background-color:#252323d3;
-    box-shadow: inset -1px -10px 5px rgba(0, 0, 0, 0.708),inset 5px 5px 5px rgba(0, 0, 0, 0.708),25px 25px 15px rgba(0, 0, 0, 0.269),;
-    position: relative;
-    text-align: end; /*marka için*/
+    box-shadow: inset -6px 6px rgb(45, 45, 45),inset 3px -3px rgb(45, 45, 45);
     
 }
-
-.calc-screen{
+.casmio {
+    color: white;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.calc-screen1 {
     width: 310px;
     height: 120px;
+    margin: 20px auto;
     border-radius: 3px;
+    text-align: end;
+    background-color:rgb(126, 126, 103) ;
     font-size: 35px;
-    display: flex;
-    justify-content: end;
-    align-items: center;
     padding: 0 10px;
-    background-color: rgb(124, 134, 118);
-    margin:20px auto;
-    border-style: outset;
-    border-top: 4px solid rgb(63 67 60);
-    border-bottom: 10px solid rgb(63 67 60);
-    border-right: 4px solid rgb(21, 21, 20);
-    border-left: 9px solid rgb(24, 25, 23);
-
-
-
-}
-
-.calc-body{
-    width: 100%;
-    height: auto;
-    display:flex;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap:10px;
+    border-bottom: 10px solid rgb(24, 23, 23);
+    border-left: 10px solid rgb(57, 56, 56);
+    border-top: 4px solid black;
+    border-right: 4px solid black;
+
 }
 
-.btn{
+.calc-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  grid-gap: 10px;
+}
+
+.btn {
     width: 70px;
     height: 70px;
-    border-radius: 15px;
-    background:linear-gradient(90deg, rgba(0, 0, 0, 0.909), rgba(82, 82, 82, 0.954));
-    color: white;
     text-align: center;
     line-height: 70px;
+    color: white;
+    border-radius: 15px;
     font-size: 20px;
-    font-weight: 700;
-    position: relative;
-    box-shadow: inset -5px -5px 5px black, inset 5px 5px 5px black, 5px 5px 15px  black;
     cursor: pointer;
-}
-
-.btn:active {
-    border: 2px solid rgba(0, 0, 0, 0.607);
-    background:linear-gradient(60deg, rgba(71, 71, 71, 0.909), rgba(21, 21, 21, 0.66));
-   
-
-}
-.btn.zero{
-    width: 150px;
-    background:linear-gradient(90deg, rgba(113, 4, 4, 0.909), rgba(173, 8, 8, 0.715));
-    box-shadow: inset -5px -5px 5px rgb(101, 1, 1), inset 5px 5px 5px rgb(105, 2, 2), 5px 5px 15px  black;
-   
-}
-.btn.opposite{
-    background:linear-gradient(90deg, rgba(31, 4, 89, 0.909), rgba(72, 9, 208, 0.909));
-    box-shadow: inset -5px -5px 5px rgb(31, 4, 89, 0.909), inset 5px 5px 5px rgba(59, 2, 181, 0.909), 5px 5px 15px  rgb(0, 0, 0);
-   
+    user-select: none;
+    background:linear-gradient(90deg, rgba(0, 0, 0, 0.909), rgba(100, 100, 100, 0.954));
+    box-shadow: inset -5px -5px 5px rgb(0, 0, 0), inset 5px 5px 5px black, 5px 5px 25px black;
+    position: relative;
+    transition: all 0.2s;
 }
 
 .btn::before {
     position: absolute;
-    content: "";
+    content: '';
     width: 50px;
     height: 50px;
-    background:linear-gradient(60deg, rgba(0, 0, 0, 0.479), rgba(0, 0, 0, 0.009));
-   border-radius: 10px;
-   border: 1px solid rgba(255, 255, 255, 0.1);
-   top:8px;
-   left:8px
-
-}
-.btn.zero::before {
-    width:130px;
-    background:linear-gradient(60deg, rgba(249, 3, 3, 0.479), rgba(248, 44, 44, 0.009));
-}
-.btn.opposite::before{
-    background:linear-gradient(90deg, rgba(59, 8, 169, 0.548), rgba(83, 13, 234, 0.137));
-  
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.479), rgba(0, 0, 0, 0.009));
+    border: 1px solid rgba(255, 255, 255, 0.098);
+    border-radius: 10px;
+    top: 9px;
+    right: 11px;
 }
 
-.marka{
-   color: white;
-   font-size: 18px;
-   margin-right: 8px;
+.btn:active {
+    transform: scale(0.95);
 }
+
+.zero{
+    width: 150px;
+    background:linear-gradient(90deg, rgb(104, 2, 2), rgb(220, 10, 10));
+    box-shadow: inset -5px -5px 5px rgb(104, 2, 2), inset 5px 5px 5px rgb(146, 3, 3), 5px 5px 25px black;
+   
+}
+.zero:before{
+    width: 130px;
+    background:linear-gradient(90deg, rgba(177, 3, 3, 0.548), rgba(240, 36, 36, 0.114));
+    border: 1px solid rgba(255, 255, 255, 0.24);
+}
+.opposite{
+    background:linear-gradient(90deg, rgb(33, 1, 149), rgba(108, 22, 212, 0.954));
+    box-shadow: inset -5px -5px 5px rgb(21, 2, 132), inset 5px 5px 5px rgb(46, 3, 146), 5px 5px 25px black;
+   
+}
+.opposite:before{
+    background:linear-gradient(90deg, rgba(49, 3, 177, 0.548), rgba(240, 36, 36, 0.114));
+    border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+
