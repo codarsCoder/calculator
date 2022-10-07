@@ -15,16 +15,20 @@ function getId(id) {
 
     switch (operator) {
         case "+":
-         return  result =  +num1 + +num2;
+            result =  +num1 + +num2
+         return  ( Math.trunc(result) == result ? result :  result.toFixed(2)); // virgülden sonrası yoksa .00 koyma 
             break;
         case "-":
-            return   result =  num1 - num2;
+            result =  num1 - num2
+            return  ( Math.trunc(result) == result ? result :  result.toFixed(2));
                 break; 
         case "x":
-            return   result =  num1 * num2;
+            result =  num1 * num2
+            return  ( Math.trunc(result) == result ? result :  result.toFixed(2));
                 break;
         case "÷":
-            return  result =  num1 / num2;
+            result =  num1 / num2
+            return  ( Math.trunc(result) == result ? result :  result.toFixed(2));
         break;  
 
    }
@@ -36,7 +40,7 @@ function getId(id) {
   let operator;
   let num1=0;
   let num2=0;
-  let num3=0;
+  let num3=0; // num3 sıfırdan büyükse sayı girilmiş demektir ona göre operatöre basılmıuşsa işlemi başlatacak
   let opFlag = 0;
   let islem;
  
@@ -75,8 +79,8 @@ function getId(id) {
             }else {
                 num2 =  screen.innerText;
                 screen.innerText = "" ;
-                num1 = transactions(num1,num2,islem); // not2
-                operatorScreen.innerText = num1 + process  ;
+                num1 = transactions(num1,num2,islem); // ayrıntı  not2 de    özetle   islem  =  son basılan operatör işaretinden bir önceki işaret
+                operatorScreen.innerText = num1 + process  ; // psocess son basılan operatörün işareti
                 num2 = 0;
                 opFlag = 1;
                 num3=0;
@@ -86,16 +90,28 @@ function getId(id) {
       
 } 
 
+    if(e.target.innerText == "="){
+
+                num2 =  screen.innerText;
+                screen.innerText = "" ;
+                num1 = transactions(num1,num2,islem); 
+                operatorScreen.innerText = num1   ;
+                num2 = 0;
+                opFlag = 0;
+                num3=0;
+
+
+    }
     if(e.target.innerText =="AC"){
         operatorScreen.innerText = " ";
             screen.innerText =0
             num1 = 0;
             num2 = 0;
+            num3=0;
             opFlag = 0;
 
+
     }
-
-
   })
 
 
