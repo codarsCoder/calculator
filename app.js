@@ -58,12 +58,13 @@ function getId(id) {
         if((lastOp.includes(process))  && opFlag == 0){//opFlag 0 ise daha ilk defa işlem yapılıyor yani ilk toplama işlemi
                 if( num3 == 0){
                     operatorScreen.innerText = num1 + process;
-                        islem = process
+                        islem = process,
+                        screen.innerText ="0";
                     
                 }else {
                     num1 =  screen.innerText ;
                     operatorScreen.innerText = num1 + process ;
-                    screen.innerText ="";
+                    screen.innerText ="0";
                     opFlag = 1;
                     num3=0;
                     islem = process
@@ -75,10 +76,11 @@ function getId(id) {
         } else if((lastOp.includes(process))  && opFlag == 1) {
             if( num3 == 0){  // *not1
                 operatorScreen.innerText = num1 + process;
-                islem = process
+                islem = process;
+                screen.innerText ="0";
             }else {
                 num2 =  screen.innerText;
-                screen.innerText = "" ;
+                screen.innerText = "0" ;
                 num1 = transactions(num1,num2,islem); // ayrıntı  not2 de    özetle   islem  =  son basılan operatör işaretinden bir önceki işaret
                 operatorScreen.innerText = num1 + process  ; // psocess son basılan operatörün işareti
                 num2 = 0;
@@ -93,25 +95,43 @@ function getId(id) {
     if(e.target.innerText == "="){
 
                 num2 =  screen.innerText;
-                screen.innerText = "" ;
+                operatorScreen.innerText = "" ;
                 num1 = transactions(num1,num2,islem); 
-                operatorScreen.innerText = num1   ;
+                screen.innerText = ""   ;
+                screen.innerText = num1   ;
                 num2 = 0;
-                opFlag = 0;
+                opFlag = 1;
                 num3=0;
-
-
     }
     if(e.target.innerText =="AC"){
         operatorScreen.innerText = " ";
-            screen.innerText =0
+            screen.innerText = 0
             num1 = 0;
             num2 = 0;
             num3=0;
             opFlag = 0;
-
-
     }
+    if(e.target.innerText =="."){
+        screen.innerText = screen.innerText + "."
+    }
+    if(e.target.innerText =="±"){
+        +screen.innerText > 0 ? screen.innerText = "-"+ screen.innerText :
+        +screen.innerText != 0  ? screen.innerText =  (screen.innerText).slice(1,screen.innerText.length): null;  // iç içe ternary 
+       
+    }
+
+    if(e.target.innerText == "%"){
+
+        num2 =  screen.innerText;
+        operatorScreen.innerText = "" ;
+        num1 = num1 * num2 / 100; 
+        screen.innerText = num1   ;
+        num2 = 0;
+        opFlag = 0;
+        num3=0;
+}
+
+
   })
 
 
