@@ -13,16 +13,19 @@
     border: 1px solid black;
     margin: 30px auto;
     padding: 10px 10px;
-    background-color: rgb(68, 107, 107);
+    background-color: rgb(181, 181, 227);
     text-align: end;
     border-radius: 10px;
     box-shadow: inset -6px 6px rgb(45, 45, 45),inset 3px -3px rgb(45, 45, 45);
+    position: relative;
     
 }
 .casmio {
-    color: white;
+    color: rgb(235, 229, 229);
     margin-right: 5px;
     margin-top: 5px;
+    text-shadow: 1px 1px 2px rgb(25, 1, 1);
+
 }
 .calc-screen1 {
     width: 310px;
@@ -31,24 +34,67 @@
     border-radius: 3px;
     text-align: end;
     background-color:rgb(126, 126, 103) ;
-    font-size: 35px;
-    padding: 0 10px;
+    font-size: 36px;
+    padding: 0 2px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     border-bottom: 10px solid rgb(24, 23, 23);
     border-left: 10px solid rgb(57, 56, 56);
     border-top: 4px solid black;
     border-right: 4px solid black;
+    overflow: hidden;
 
 }
-.operator-screen {
-    width: 100%;
+#operator-screen {
+    width: 98%;
     height: 60px;
+    margin: auto;
+    margin-top: 30px;
+    overflow: hidden;
+    font-size: 18px !important;
+    transition: all 0.5s;
 }
-.calc-screen {
-    width: 100%;
-    height: 60px;
+#calc-screen {
+    width: 96%;
+    height: 45px;
+margin: auto;
+    overflow: hidden;
+}
+
+.sun-power {
+    width: 100px;
+    height: 30px;
+    /* margin: 5px auto; */
+    border-radius: 3px;   
+     background-color:rgba(20, 20, 19, 0.778) ;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 5px solid rgb(79, 13, 50);
+    border-left: 5px solid rgb(79, 13, 50);
+    border-top: 2px solid rgb(79, 23, 50);
+    border-right: 1px solid rgb(79, 13, 50);
+    position: absolute;
+    top: 15px;
+    left: 13px;
+
+}
+.sun-power::before {
+    content:"";
+    width: 20px;
+    height: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.774);
+    border-left: 1px solid rgba(255, 255, 255, 0.774);
+
+}
+.sun-power::after {
+    content:"";
+    width: 20px;
+    height: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.708);
+    border-right: 1px solid rgba(255, 255, 255, 0.708);
+
 }
 .calc-body {
   display: flex;
@@ -63,13 +109,13 @@
     height: 70px;
     text-align: center;
     line-height: 70px;
-    color: white;
+    color: rgb(248, 244, 244);
     border-radius: 15px;
     font-size: 20px;
     cursor: pointer;
     user-select: none;
-    background:linear-gradient(90deg, rgba(0, 0, 0, 0.909), rgba(100, 100, 100, 0.954));
-    box-shadow: inset -5px -5px 5px rgb(0, 0, 0), inset 5px 5px 5px black, 5px 5px 25px black;
+    background:linear-gradient(90deg, rgb(91, 118, 168), rgba(59, 100, 176, 0.954));
+    box-shadow: inset -2px -3px 6px rgb(0 0 0), inset 6px 6px 6px black, 5px 5px 12px black;
     position: relative;
     transition: all 0.2s;
 }
@@ -91,9 +137,10 @@
 }
 
 .zero{
+    color: rgb(248, 244, 244);
     width: 150px;
     background:linear-gradient(90deg, rgb(104, 2, 2), rgb(220, 10, 10));
-    box-shadow: inset -5px -5px 5px rgb(104, 2, 2), inset 5px 5px 5px rgb(146, 3, 3), 5px 5px 25px black;
+    box-shadow: inset -5px -5px 5px rgb(60, 42, 42), inset 5px 5px 5px rgb(64, 28, 28), 5px 5px 25px black;
    
 }
 .zero:before{
@@ -102,12 +149,23 @@
     border: 1px solid rgba(255, 255, 255, 0.24);
 }
 .opposite{
+    color: rgb(248, 244, 244);
     background:linear-gradient(90deg, rgb(33, 1, 149), rgba(108, 22, 212, 0.954));
-    box-shadow: inset -5px -5px 5px rgb(21, 2, 132), inset 5px 5px 5px rgb(46, 3, 146), 5px 5px 25px black;
+    box-shadow: inset -5px -5px 5px rgb(29, 25, 52), inset 5px 5px 5px rgb(29, 25, 52), 5px 5px 25px black;
    
 }
 .opposite:before{
     background:linear-gradient(90deg, rgba(49, 3, 177, 0.548), rgba(240, 36, 36, 0.114));
+    border: 1px solid rgba(255, 255, 255, 0.24);
+}
+.ac{
+    color: rgb(248, 244, 244);
+    background:linear-gradient(90deg, rgb(255,127,0), rgba(255,127,0, 0.954));
+    box-shadow: inset -5px -5px 5px rgb(7, 3, 25), inset 5px 5px 5px rgb(29, 25, 52), 5px 5px 25px black;
+   
+}
+.ac:before{
+    background:linear-gradient(90deg, rgba(31, 203, 4, 0.548), rgba(31, 203, 4, 0.114));
     border: 1px solid rgba(255, 255, 255, 0.24);
 }
 
