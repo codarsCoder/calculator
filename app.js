@@ -31,8 +31,6 @@ function transactions(num1, num2, operator) {
 }
 
 function lengthControl(num) {
-    console.log(queryS(".calc-screen1"));
-    console.log(num.length);
     if (num.length > 14) {
         queryS(".calc-screen1").style.fontSize = "30px";
         console.log(queryS(".calc-screen1").style.fontSize);
@@ -47,18 +45,22 @@ let operator;
 let num1 = 0;
 let num2 = 0;
 let num3 = 0; // num3 sıfırdan büyükse sayı girilmiş demektir ona göre operatöre basılmıuşsa işlemi başlatacak
-let opFlag = 0;
-let islem;
+let opFlag = 0; // operatör seçildikten sonra tekrar sayı girilirse bu 1 olur yoksa sayı girilene kadar 0 kalır böylece operatör işareti değiştirilebilir 
+let islem = 0;
+let first=0; // işleme sıfırdan başlıyoruz daha hiç işlem yapılmadı ekranda yazılan default olarak gözüken sıfırı işleme alma onu yok kabul et
 
 getId("calc-body")
     .addEventListener("click", (e) => {
 
         if (e.target.classList.contains("btnNo")) {
-            if (screen.innerText.length <= 16) {
-                screen.innerText = +screen.innerText ? screen.innerText + e.target.innerText : e.target.innerText;
+           
+           if (screen.innerText.length <= 16) {  // nokta var ise numbere çevirmeden aldık nokta tok ise number ile aldık böylece sayının önünde default gelen sıfır işleme alınmamış oldu
+             
+                first ? screen.innerText =  screen.innerText + e.target.innerText : screen.innerText = e.target.innerText;
                 num3 = 1;
+                first = 1;
                 lengthControl(screen.innerText)
-            }
+           }
         }
     
     //4 işlem
@@ -70,6 +72,7 @@ getId("calc-body")
             operatorScreen.innerText = num1 + process;
             islem = process,
                 screen.innerText = "0";
+                first = 0;
 
         } else {
             num1 = screen.innerText;
@@ -77,7 +80,8 @@ getId("calc-body")
             screen.innerText = "0";
             opFlag = 1;
             num3 = 0;
-            islem = process
+            islem = process;
+            first = 0;
 
         }
 
@@ -88,6 +92,7 @@ getId("calc-body")
             operatorScreen.innerText = num1 + process;
             islem = process;
             screen.innerText = "0";
+            first = 0;
         } else {
             num2 = screen.innerText;
             screen.innerText = "0";
@@ -96,22 +101,27 @@ getId("calc-body")
             num2 = 0;
             opFlag = 1;
             num3 = 0;
-            islem = process
+            islem = process;
+            first = 0;
         }
     }
 
 }
 
 if (e.target.innerText == "=") {
+    if(num1){
+        num2 = screen.innerText;
+        operatorScreen.innerText = "";
+        num1 = transactions(num1, num2, islem);
+        screen.innerText = "";
+        screen.innerText = num1;
+        num2 = 0;
+        opFlag = 1;
+        num3 = 0;
+        first = 0;
 
-    num2 = screen.innerText;
-    operatorScreen.innerText = "";
-    num1 = transactions(num1, num2, islem);
-    screen.innerText = "";
-    screen.innerText = num1;
-    num2 = 0;
-    opFlag = 1;
-    num3 = 0;
+    }
+  
 }
 if (e.target.innerText == "AC") {
     operatorScreen.innerText = " ";
@@ -120,6 +130,7 @@ if (e.target.innerText == "AC") {
     num2 = 0;
     num3 = 0;
     opFlag = 0;
+    first = 0;
 }
 if (e.target.innerText == ".") {
     screen.innerText.includes(".") ? null : 

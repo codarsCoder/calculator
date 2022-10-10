@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: consolas;
     font-weight: 900;
-   
+   user-select: none;
 }
 
 .calc-wrapper {
@@ -52,7 +52,7 @@
     margin: auto;
     margin-top: 30px;
     overflow: hidden;
-    font-size: 18px !important;
+    font-size: 25px;
     transition: all 0.5s;
 }
 #calc-screen {
@@ -63,7 +63,7 @@ margin: auto;
 }
 
 .sun-power {
-    width: 100px;
+    width: 90px;
     height: 30px;
     /* margin: 5px auto; */
     border-radius: 3px;   
